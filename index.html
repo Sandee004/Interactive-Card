@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <img
+      class="bg-img"
+      src="images/bg-main-desktop.png"
+      alt="background image for desktop view"
+    />
+    <img
+      class="bg-img-xs"
+      src="images/bg-main-mobile.png"
+      alt="background image for mobile view"
+    />
+    <div class="container">
+      <section class="card-display">
+        <div class="card-front">
+          <img
+            class="card-front-img"
+            src="images/bg-card-front.png"
+            alt="display of card front"
+          />
+          <img
+            class="card-logo"
+            src="images/card-logo.svg"
+            alt="logo on the card"
+          />
+          <p class="card-number-display">1234 5678 9123 0000</p>
+          <p class="cardholder-display">John Wick's Dog</p>
+          <p class="expiry-month-display">00</p>
+          <p class="expiry-divider-display">/</p>
+          <p class="expiry-year-display">0000</p>
+        </div>
+
+        <div class="card-back">
+          <img class="card-back-img" src="images/bg-card-back.png" alt="" />
+          <p class="cvc-display">000</p>
+        </div>
+      </section>
+
+      <section class="card-details">
+        <form id="myForm" action="/action_page.php" name="myForm">
+          <label for="cardholder-name"> CARDHOLDER NAME</label>
+          <input
+            id="cardholder-name"
+            class="cardholder-name"
+            type="text"
+            name="cardholder-name"
+            placeholder="John Wick's Dog"
+            oninput="inputName()"
+          />
+          <p id="errorMsg"></p>
+
+          <label class="card-number" for="card-number"> CARD NUMBER</label>
+          <input
+            id="card-number"
+            class="card-number"
+            type="text"
+            name="card-number"
+            placeholder="1234 5678 9123 0000"
+            oninput="inputCardNum()"
+          />
+          <p id="card-num-error"></p>
+
+          <div class="flex">
+            <label class="expiry-date" for="expiry-date">
+              EXP. DATE (MM/YYYY)<br />
+              <input
+                class="expiry"
+                type="text"
+                name="expiry-date"
+                placeholder="MM"
+                oninput="inputMM()"
+              />
+              <input
+                class="expiry"
+                type="text"
+                name="expiry-date"
+                placeholder="YYYY"
+                oninput="inputYY()"
+              />
+              <p id="expiry-error"></p>
+            </label>
+
+            <label class="cvc" for="cvc">
+              CVC<br />
+              <input
+                id="cvc"
+                class="cvc"
+                type="text"
+                name="cvc"
+                placeholder="123"
+                oninput="inputCvc()"
+              />
+              <p id="error-cvc"></p>
+            </label>
+          </div>
+
+          <button id="submit">Confirm</button>
+        </form>
+        <div id="thank-you" class="thank-you hidden">
+          <img src="images/icon-complete.svg" alt="" />
+          <h2 id="thank-you-header">Thank You!</h2>
+          <p>We've added your card details</p>
+          <button id="continue">Continue</button>
+        </div>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
