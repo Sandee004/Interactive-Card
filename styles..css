@@ -1,0 +1,537 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap");
+
+:root {
+  --debug-red: 1px solid red;
+  --debug-blue: 1px solid blue;
+  --debug-green: 1px solid green;
+  --debug-black: 1px solid black;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+body {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.bg-img {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+}
+.bg-img-xs {
+  display: none;
+}
+
+.container {
+  /* position: relative; */
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  /* height: 800px; */
+  /* display: flex; */
+  /* display: none; */
+}
+
+section {
+  border: var(--debug-red);
+}
+
+section.card-display {
+  flex: 0 1 600px;
+  /* position: relative; */
+  color: hsl(0, 0%, 100%);
+  border: var(--debug-blue);
+  float: left;
+  /* flex: 1 0 auto; */
+}
+section.card-details {
+  /* position: relative; */
+  /* flex: 0 1 45%; */
+  border: var(--debug-green);
+  float: right;
+}
+
+ 
+.card-front,
+.card-back {
+  position: absolute;
+  width: fit-content;
+}
+.card-front-img,
+.card-back-img {
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+.card-front {
+  left: 470px;
+  top: 25%;
+  z-index: 1;
+}
+.card-back {
+  left: 540px;
+  bottom: 25%;
+}
+.card-logo,
+.card-number-display,
+.cardholder-display,
+.expiry-month-display,
+.expiry-divider-display,
+.expiry-year-display {
+  position: absolute;
+}
+.card-logo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 3;
+}
+.card-number-display {
+  bottom: 80px;
+  left: 30px;
+  font-size: 25px;
+  letter-spacing: 5px;
+}
+.cardholder-display {
+  bottom: 30px;
+  left: 30px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+.expiry-month-display {
+  bottom: 30px;
+  right: 85px;
+  font-size: 0.9em;
+}
+
+.expiry-divider-display {
+  bottom: 30px;
+  right: 75px;
+  font-size: 0.9em;
+}
+
+.expiry-year-display {
+  bottom: 30px;
+  right: 30px;
+  font-size: 0.9em;
+}
+
+.cvc-display {
+  position: absolute;
+  right: 60px;
+  bottom: 117px;
+}
+
+
+
+
+
+/* CARD FORM SECTION */
+form {
+  height: 350px;
+  position: absolute;
+  top: 33%;
+  right: 25%;
+}
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+}
+label.card-number,
+label.expiry-date,
+label.cvc {
+  margin-top: 30px;
+}
+input {
+  width: 350px;
+  padding: 10px 10px;
+  border: 1px solid hsla(279, 6%, 55%, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+}
+input:focus {
+  outline: 0px solid hsl(249, 99%, 64%);
+  border-top-color: hsl(249, 99%, 64%);
+  border-right-color: hsl(278, 94%, 30%);
+  border-bottom-color: hsl(249, 99%, 64%);
+  border-left-color: hsl(278, 94%, 30%);
+}
+input::placeholder {
+  font-weight: 300;
+}
+input:invalid {
+  border: 1px solid hsl(0, 100%, 66%);
+}
+p#errorMsg,
+p#card-num-error,
+p#expiry-error,
+p#error-cvc {
+  color: hsl(0, 100%, 66%);
+  font-size: 12px;
+  font-weight: 500;
+  padding-top: 2px;
+  padding-left: 2px;
+}
+p#expiry-error,
+p#error-cvc {
+  letter-spacing: 1px;
+}
+.flex {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.flex .expiry {
+  width: 90px;
+  margin-right: 5px;
+}
+.flex .cvc {
+  width: 135px;
+}
+input.expiry,
+input.cvc {
+  margin-top: 5px;
+}
+.card-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  all: unset;
+  text-align: center;
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 16px;
+  background-color: hsl(278, 68%, 11%);
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+}
+button:hover {
+  background-color: hsl(278, 68%, 11%, 0.8);
+}
+
+/* THANK YOU SECTION */
+.thank-you {
+  position: absolute;
+  right: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-family: "Space Grotesk", sans-serif;
+}
+.thank-you img {
+  width: 70px;
+}
+.thank-you h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.thank-you p {
+  font-weight: 500;
+  color: hsl(279, 6%, 55%);
+}
+button#continue {
+  margin-top: 25px;
+  width: 350px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* MEDIA QUERIES */
+/* 2560px */
+@media screen and (min-width: 2560px) {
+  .card-front {
+    left: 28.5%;
+    top: 33%;
+  }
+  .card-back {
+    left: 31%;
+    bottom: 33%;
+  }
+  form {
+    top: 38%;
+    right: 33%;
+  }
+  .thank-you {
+    right: 33%;
+  }
+}
+
+/* 1440px */
+@media screen and (max-width: 1440px) {
+  .card-front {
+    left: 19%;
+    top: 20%;
+  }
+  .card-back {
+    left: 25%;
+    bottom: 20%;
+  }
+  form {
+    right: 15%;
+    top: 30%;
+  }
+  .thank-you {
+    right: 15%;
+    top: 33%;
+  }
+}
+
+/* 1366px */
+@media screen and (max-width: 1366px) {
+  form {
+    top: 200px;
+    right: 200px;
+  }
+  .card-front {
+    top: 17%;
+    left: 18%;
+  }
+  .card-back {
+    bottom: 16%;
+    left: 23%;
+  }
+}
+
+/* 1024px */
+@media screen and (max-width: 1024px) {
+  .bg-img {
+    width: 35%;
+  }
+  .card-front {
+    left: 6%;
+    top: 20%;
+  }
+  .card-back {
+    left: 12%;
+    bottom: 20%;
+  }
+  form {
+    right: 6%;
+  }
+  .thank-you {
+    right: 6%;
+  }
+}
+
+/* TABLETS AND BELOW -- This is going to be super annoying */
+/* 768px */
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .bg-img {
+    display: none;
+  }
+  .bg-img-xs {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+  }
+  .card-front {
+    top: 130px;
+    left: 80px;
+    z-index: 5;
+  }
+  .card-back {
+    top: 50px;
+    left: 300px;
+  }
+  .card-front-img,
+  .card-back-img {
+    max-width: 400px;
+    width: 100%;
+  }
+  .cvc-display {
+    top: 97px;
+    bottom: 0;
+    right: 45px;
+  }
+  section.card-details {
+    position: relative;
+    flex: 0 1 50%;
+  }
+  form {
+    top: 0;
+    right: 200px;
+  }
+  .flex .expiry {
+    flex: 0 1 auto;
+    width: 40%;
+  }
+  .flex .cvc {
+    flex: 1 0 50px;
+    justify-self: end;
+    align-self: flex-end;
+  }
+}
+
+/* 425px */
+@media screen and (max-width: 425px) {
+  .bg-img-xs {
+    height: 250px;
+  }
+  .card-back-img,
+  .card-front-img {
+    max-width: 300px;
+  }
+  .card-back {
+    left: 90px;
+    top: 30px;
+  }
+  .card-front {
+    top: 125px;
+    left: 30px;
+  }
+  .card-number-display {
+    font-size: 14px;
+    bottom: 60px;
+    letter-spacing: 4px;
+  }
+  .cardholder-display {
+    font-size: 12px;
+  }
+  .expiry-month-display,
+  .expiry-divider-display,
+  .expiry-year-display {
+    font-size: 12px;
+  }
+  .expiry-year-display {
+    right: 38px;
+  }
+  p.cvc-display {
+    font-size: 12px;
+  }
+  .cvc-display {
+    bottom: unset;
+    top: 75px;
+    right: 38px;
+  }
+  section.card-details {
+    position: relative;
+    flex: 0 1 65%;
+  }
+  form {
+    right: 35px;
+  }
+}
+
+/* 375px */
+@media screen and (max-width: 375px) {
+  .card-back {
+    left: 60px;
+  }
+  .card-front {
+    left: 20px;
+  }
+  .card-logo {
+    width: 20%;
+    top: 20px;
+  }
+  form {
+    right: 10px;
+  }
+}
+
+/* 320px */
+@media screen and (max-width: 320px) {
+  .bg-img-xs {
+    height: 200px;
+  }
+  .card-back {
+    top: unset;
+    bottom: 610px;
+    left: 50px;
+  }
+  .card-front {
+    top: 100px;
+  }
+  .card-front-img,
+  .card-back-img {
+    max-width: 250px;
+  }
+  form {
+    max-width: 250px;
+    right: 30px;
+    top: -50px;
+  }
+  input {
+    max-width: 250px;
+  }
+  .cvc-display {
+    top: 60px;
+    right: 30px;
+  }
+  .card-logo {
+    top: 20px;
+    width: 20%;
+  }
+  .card-number-display {
+    font-size: 12px;
+    bottom: 40px;
+  }
+  .cardholder-display,
+  .expiry-year-display,
+  .expiry-divider-display,
+  .expiry-month-display {
+    font-size: 9px;
+  }
+  .cardholder-display {
+    bottom: 20px;
+  }
+  .expiry-divider-display {
+    right: 65px;
+    bottom: 20px;
+  }
+  .expiry-month-display {
+    right: 72px;
+    bottom: 20px;
+  }
+  .expiry-year-display {
+    bottom: 20px;
+  }
+  section.card-details {
+    position: relative;
+    flex: 0 1 80%;
+  }
+  .flex {
+    gap: 0;
+  }
+  .flex .expiry {
+    flex: 0 1 auto;
+    width: 40%;
+  }
+  .flex .cvc {
+    flex: 1 0 70px;
+    width: 70px;
+    justify-self: end;
+    align-self: flex-end;
+  }
+  label {
+    font-size: 12px;
+  }
+}
